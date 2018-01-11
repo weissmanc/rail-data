@@ -1,0 +1,24 @@
+
+<template name="point">
+
+  <div class="container-fluid {{alarmClass}}" style="border:1px solid #cecece;">
+    <div class="row small text-muted">
+      <div class="col-xs-6 text-left">{{line}}</div>
+      <div class="col-xs-6 text-right">{{location}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-9"><strong>{{description}}</strong></div>
+      <div class="col-xs-3 text-right"><strong>{{stateText}}</strong></div>
+    </div>
+    <div class="row small text-muted">
+      <div class="col-xs-5 text-left">{{_id}}</div>
+      <div class="col-xs-3 text-left">{{sys}}</div>
+      <div class="col-xs-2 text-left">{{sub}}</div>
+    </div> 
+    <div class="row small text-muted">
+      <div class="col-xs-6 text-left">{{formatTime update 'YYYY-MM-DD HH:mm:ss'}}</div>
+      <div class="col-xs-3 text-left">Today:{{todayCount}}</div>
+      <div class="col-xs-3 text-left">Yesterday:{{yesterdayCount}}</div>
+    </div>
+  </div>
+</template>

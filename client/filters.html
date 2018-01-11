@@ -1,0 +1,16 @@
+<template name="filters">
+  
+  <button class="btn btn-info btn-block" data-toggle="collapse" data-target="#filters-container">
+    <strong>Click Here to Filter Points</strong>
+  </button>
+
+  <div id="filters-container" class="collapse">
+    <!-- TODO eventually change form type to method? -->
+    <div class="panel panel-default">
+      {{> quickForm schema=filterFormSchema id="filterForm" type="normal" doc=filterDoc }}
+    </div>
+  </div>  
+  
+
+
+</template>
