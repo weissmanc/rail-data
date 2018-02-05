@@ -1,7 +1,9 @@
 
 <template name="point">
 
-  <div class="container-fluid {{alarmClass}}" style="border:1px solid #cecece;">
+  <div class="container-fluid {{alarmClass}}" style="border:1px solid #cecece;"
+    data-toggle="collapse" data-target="#{{_id}}-detail"
+  >
     <div class="row small text-muted">
       <div class="col-xs-6 text-left">{{line}}</div>
       <div class="col-xs-6 text-right">{{location}}</div>
@@ -14,11 +16,22 @@
       <div class="col-xs-5 text-left">{{_id}}</div>
       <div class="col-xs-3 text-left">{{sys}}</div>
       <div class="col-xs-2 text-left">{{sub}}</div>
-    </div> 
+    </div>
     <div class="row small text-muted">
       <div class="col-xs-6 text-left">{{formatTime update 'YYYY-MM-DD HH:mm:ss'}}</div>
       <div class="col-xs-3 text-left">Today:{{todayCount}}</div>
       <div class="col-xs-3 text-left">Yesterday:{{yesterdayCount}}</div>
     </div>
   </div>
+
+
+  <div id="{{_id}}-detail" class="collapse">
+    <div class="panel panel-default">
+      COMING SOON - Detailed point data and trend graphs
+      <!-- TODO but create and destroy template dynamically
+      {{> quickForm schema=pointFormSchema id="{{_id}}-pointForm" type="readonly" doc=this }}
+    -->
+    </div>
+  </div>
+
 </template>

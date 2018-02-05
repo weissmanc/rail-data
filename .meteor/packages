@@ -24,3 +24,4 @@ percolate:synced-cron
 aldeed:autoform
 twbs:bootstrap
 accounts-ui
+aldeed:collection2-core

@@ -6,13 +6,13 @@ import moment from 'moment';
 
 var createFilter = function(dict){
     var filter = {};
-    
+
     //Field filters
     //TODO is this ok for boolean fields?
     ['isAlarm'].forEach((field)=>{
         dict.get(field) && (filter[field] = dict.get(field));
     });
-    
+
     //regex filters
     ['line', 'location', 'sys','sub','description'].forEach((field)=>{
         dict.get(field) && (filter[field]= {
@@ -20,17 +20,17 @@ var createFilter = function(dict){
             $options: "i"
         });
     });
- 
+
     //Hack, pntid is really _id field in points collection
     dict.get('pntid') && (filter['_id']= {
         $regex: dict.get('pntid'),
         $options: "i"
     });
-    
+
     console.log('currFilters:', currFilters.all());
-        
+
     return filter;
-    
+
 };
 
 
@@ -47,7 +47,7 @@ Template.points.onCreated(function () {
         //debug: true
     };
     this.pagination = new Meteor.Pagination(Points, pagOptions);
-    
+
     console.log('subscribe to stats');
     this.subscribe('statistics');
 
@@ -73,6 +73,7 @@ Template.points.helpers({
     lastUpdate: function(serverName){
         var tm = Stats.findOne({server:serverName});
         var str =  moment( (tm && tm.lastUpdate) || 0).format('MM/DD/YYYY hh:mm:ss');
-        return str;
+        var changes = Stats.changeCount || 0;
+        return `${serverName} ${changes} changes at ${str}`;
     }
 });

@@ -1,17 +1,17 @@
 <template name="points">
-    <div>Last Updates - LR:{{lastUpdate "lr"}}</div>
+    <div>{{lastUpdate "lr"}}</div>
 
     <div>
         {{#if isReady}}
 
           {{#each documents}}
-  
+
             {{> point}}
           {{else}}
              No points match your filters
 
           {{/each}}
-          
+
           {{> defaultBootstrapPaginator pagination=templatePagination limit=10}}
         {{else}}
             Loading...
