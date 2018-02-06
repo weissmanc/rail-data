@@ -2,7 +2,7 @@ import './point.html';
 
 Template.point.helpers({
   stateText() {
-    var idx = parseInt(this.state,10);
+    var idx = this.state;
     if(isNaN(idx)) {
       return idx;
     }
@@ -15,11 +15,8 @@ Template.point.helpers({
   alarmClass() {
     //TODO might want to have a fallback to alert off normals
     //var offNormal = this.offNormals.includes(this.state);
-
-    var idx = parseInt(this.state,10);
-    idx = isNaN(idx) ? -1: idx;
-
-    if(-1 !== idx){
+    var idx = this.state;
+    if( !isNaN(idx)){
       switch(this.alarmPri[idx]){
         case 'CRITICAL':
         case 'MAJOR':
